@@ -203,6 +203,14 @@ MariaDB > show databases;
 
 
 ### c. Install Cloudera Manager
+8시 30분까지 기다려 봤으니 이 단계에서 넘어가지 않았습니다.
+마지막 172.31.54.190   data3.5team.com n5 <-- 이쪽에서 안넘어 가는데
+아까 sudo yum install -y cloudera-manager-daemons cloudera-manager-agent 를 철시할 때도 똑같은 172.31.54.190이 1시간 정도 잡아먹은것 같습니다.
+
+![image](https://user-images.githubusercontent.com/30167661/97788862-629d0480-1bff-11eb-8f62-89c745092a5b.png)
+
+![image](https://user-images.githubusercontent.com/30167661/97788904-bf98ba80-1bff-11eb-99c3-1dc36de61691.png)
+
 
 
 ## 3. extract tables authors and posts
