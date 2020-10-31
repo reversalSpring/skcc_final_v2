@@ -282,6 +282,151 @@ LOCATION '/user/training/authors/'
 ```
 
 # part 2
+1번
+
+```sql
+SELECT a.id AS id, a.type AS type, a.status AS status, a.amount AS amount, 
+a.amount - b.average AS difference FROM account AS a JOIN
+(SELECT type, AVG(amount) AS average FROM account GROUP BY type) AS b
+ON a.type = b.type 
+WHERE status='Active';
+```
+![image](https://user-images.githubusercontent.com/30167661/97789022-a6443e00-1c00-11eb-8872-72d65387519b.png)
+
+
+2번
+
+```sql
+CREATE DATABASE problem2;
+CREATE EXTERNAL TABLE solution(id INT, fname STRING, lname STRING, address STRING, city STRING, state STRING, zip STRING, birthday STRING, hireday STRING)
+STORED AS PARQUET
+LOCATION '/user/training/problem2/data/employee';
+```
+![image](https://user-images.githubusercontent.com/30167661/97789038-c70c9380-1c00-11eb-8658-cec374691089.png)
+
+
+3번
+
+```sql
+CREATE TABLE solution STORED AS PARQUET AS
+SELECT c.id AS id, c.fname AS fname, c.lname AS lname, c.hphone AS hphone 
+FROM account AS a JOIN customer AS c ON a.custid=c.id 
+WHERE a.amount < 0;
+```
+
+![image](https://user-images.githubusercontent.com/30167661/97789053-d12e9200-1c00-11eb-8aef-f9482cf97ad2.png)
+
+
+4번
+
+```sql
+CREATE DATABASE problem4;
+
+CREATE EXTERNAL TABLE employee1(id INT, fname STRING, lname STRING, address STRING, city STRING, state STRING, zip STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+STORED AS TEXTFILE 
+LOCATION '/user/training/problem4/data/employee1';
+
+CREATE EXTERNAL TABLE employee2(id INT, none STRING, fname STRING, lname STRING, address STRING, city STRING, state STRING, zip STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE 
+LOCATION '/user/training/problem4/data/employee2';
+
+CREATE TABLE solution 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+STORED AS TEXTFILE 
+LOCATION '/user/training/problem4/solution' AS 
+SELECT id, initcap(fname) as fname, initcap(lname), address, city, state, zip from employee1
+UNION ALL
+SELECT id, initcap(fname) as fname, initcap(lname), address, city, state, zip from employee2;
+```
+
+![image](https://user-images.githubusercontent.com/30167661/97789064-dc81bd80-1c00-11eb-9217-e4ff8dcc869b.png)
+
+
+
+5번
+
+```sql
+select fname, lname, city, state from employee where city='Palo Alto' and state='CA'
+union all 
+select fname, lname, city, state from customer where city='Palo Alto' and state='CA';
+```
+
+![image](https://user-images.githubusercontent.com/30167661/97789069-e5728f00-1c00-11eb-9514-f6c11a684190.png)
+
+
+6.
+
+```sql
+create table solution row format delimited fields terminated by '\t'
+stored as textfile as
+select id, fname, lname, address, city, state, zip, substr(birthday, 0, 5) from employee;
+```
+
+![image](https://user-images.githubusercontent.com/30167661/97789074-edcaca00-1c00-11eb-9bd7-ed589635ce6b.png)
+
+
+7.
+
+```sql
+select concat(fname, ' ', lname) as name from employee where city='Seattle') order by name;
+```
+![image](https://user-images.githubusercontent.com/30167661/97789078-f6bb9b80-1c00-11eb-84fd-30935d249fe5.png)
+
+
+8.
+
+```bash
+sqoop export \
+--connect jdbc:mysql://localhost/problem8 \
+--dirver com.mysql.jdbc.Driver \
+--username cloudera \
+--password cloudera \
+--table solution \
+-m 1 \
+--export-dir '/user/training/problem8/data/customer/' \
+--fields-terminated-by '\t' \
+--columns 'id, fname , lname , address , city, state , zip , birthday';
+```
+
+![image](https://user-images.githubusercontent.com/30167661/97789082-fde2a980-1c00-11eb-804e-eb655440ebea.png)
+
+
+9.
+
+```sql
+create table solution 
+select concat('A', id) as id, fname, lname, address, city, state, zip, birthday from customer;
+select * from solution;
+```
+
+
+![image](https://user-images.githubusercontent.com/30167661/97789088-05a24e00-1c01-11eb-8a81-a4f5c25fbc0d.png)
+
+
+
+10
+
+```sql
+create table solution as 
+SELECT c.id as id
+    , c.fname as fname
+    , c.lname as lname
+    , c.city as city
+    , c.state as state
+    , b.charge as charge
+    , to_date(substr(b.tstamp, 0, 10)) as billdata 
+FROM customer AS c left outer join
+billing AS b
+ON c.id = b.id
+```
+![image](https://user-images.githubusercontent.com/30167661/97789097-12bf3d00-1c01-11eb-8c96-d89cd53ce844.png)
+
+11 <-- 이거 제가 문제를 잘못 이해한걸 수도 있는데 probluem11 DB가 없습니다.
+
+![image](https://user-images.githubusercontent.com/30167661/97789118-2ff40b80-1c01-11eb-8564-027f6008657e.png)
+
 
 
 
