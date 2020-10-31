@@ -425,7 +425,7 @@ ON c.id = b.id
 
 11 <-- 이거 제가 문제를 잘못 이해한걸 수도 있는데 probluem11 DB가 없습니다.
 
-![image](https://user-images.githubusercontent.com/30167661/97789118-2ff40b80-1c01-11eb-8564-027f6008657e.png)
+![image](https://user-images.githubusercontent.com/30167661/97789137-4f8b3400-1c01-11eb-886e-49d493615c51.png)
 
 
 
