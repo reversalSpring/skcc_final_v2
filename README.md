@@ -4,12 +4,16 @@
 
 ### a. linux setup
 
-> sudo vi /etc/hosts
->
-> 10.0.0.243 n1.ex.com n1
-> 10.0.0.68 n2.ex.com n2
-> 10.0.0.74 n3.ex.com n3
-> 10.0.0.76 n4.ex.com n4
-> 10.0.0.44 n5.ex.com n5
->
-> sudo hostnamectl set-hostname n1.ex.com
+```bash
+sudo vi /etc/hosts 
+ 
+172.31.60.204   cm.5team.com n1
+172.31.51.203   master.5team.com n2
+172.31.61.78    data1.5team.com n3
+172.31.61.204   data2.5team.com n4
+172.31.54.190   data3.5team.com n5
+
+sudo hostnamectl set-hostname n1
+```
+![image](https://user-images.githubusercontent.com/30167661/97786751-08954280-1bf1-11eb-8512-38d599bb0a16.png)
+
