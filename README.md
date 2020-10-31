@@ -247,7 +247,8 @@ sudo systemctl start cloudera-scm-server
 
 ![image](https://user-images.githubusercontent.com/30167661/97788862-629d0480-1bff-11eb-8f62-89c745092a5b.png)
 
-[agent 설치 때도 엄청 오래 결려서 이상했떤 172.31.54.190   data3.5team.com n5]
+[agent 설치 때도 엄청 오래 결려서 이상했떤 172.31.54.190   data3.5team.com n5] 
+[밑에 사진 hostname은 다 바꾸었는데 재접속을 안해서 바뀌기 전 hostname으로 표시]
 ![image](https://user-images.githubusercontent.com/30167661/97788904-bf98ba80-1bff-11eb-99c3-1dc36de61691.png)
 
 
