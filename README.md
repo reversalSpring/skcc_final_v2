@@ -31,7 +31,8 @@ sudo gpasswd -a training skcc
 sudo visudo # training ALL=(ALL) ALL
 ```
 
-![image](https://user-images.githubusercontent.com/30167661/97786777-38444a80-1bf1-11eb-8ccc-ade8544e034f.png)
+![image](https://user-images.githubusercontent.com/30167661/97789179-b14b9e00-1c01-11eb-8f31-29d199a639d6.png)
+
 
 ```bash
 getent hosts
