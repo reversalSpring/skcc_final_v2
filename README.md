@@ -198,6 +198,7 @@ GRANT ALL ON *.* TO 'training'@'%' IDENTIFIED BY 'training';
 FLUSH PRIVILEGES;
 
 MariaDB > show databases;
+```
 
 ![image](https://user-images.githubusercontent.com/30167661/97786852-b30d6580-1bf1-11eb-8838-02f34dc65678.png)
 
