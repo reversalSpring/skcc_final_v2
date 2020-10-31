@@ -1,2 +1,15 @@
-# ito side project를 만들기 위한 초기 git
-## 작성자 : 실험용 사이드 프로젝트를 하기위해 만들어 졌습니다.
+# part 1
+
+## 1. Create a CDH cluster on AWS
+
+### a. linux setup
+
+> sudo vi /etc/hosts
+>
+> 10.0.0.243 n1.ex.com n1
+> 10.0.0.68 n2.ex.com n2
+> 10.0.0.74 n3.ex.com n3
+> 10.0.0.76 n4.ex.com n4
+> 10.0.0.44 n5.ex.com n5
+>
+> sudo hostnamectl set-hostname n1.ex.com
